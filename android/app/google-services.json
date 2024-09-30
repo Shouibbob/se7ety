@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "725308217535",
+    "project_id": "se7eity-121",
+    "storage_bucket": "se7eity-121.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725308217535:android:ec0634430fabee9edd8e0a",
+        "android_client_info": {
+          "package_name": "com.shouib.se7ety"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvgZEFcn8dG77JaaPz2Bf4q7fYO70JbXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
