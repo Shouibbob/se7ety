@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/function/navigation.dart';
+import 'package:se7ety/core/services/local_storage.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/core/widgets/custom_button_widget.dart';
@@ -26,6 +27,8 @@ class _OnboardingViewState extends State<OnboardingView> {
         actions: [
           TextButton(
             onPressed: () {
+              AppLocalStorage.cacheData(
+                  key: AppLocalStorage.isOnboardingSeen, value: true);
               pushReplacement(context, const WelcomView());
             },
             child: Text(
@@ -99,6 +102,8 @@ class _OnboardingViewState extends State<OnboardingView> {
                       width: 100,
                       text: 'هيا بنا',
                       onPressed: () {
+                        AppLocalStorage.cacheData(
+                            key: AppLocalStorage.isOnboardingSeen, value: true);
                         pushReplacement(context, const WelcomView());
                       },
                     ),

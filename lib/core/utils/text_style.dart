@@ -40,7 +40,7 @@ TextStyle getBodyStyle(
   );
 }
 
-TextStyle getSmallTextStyle(
+TextStyle getSmallStyle(
     {double fontSize = 14,
     Color? color,
     fontWeight = FontWeight.normal,

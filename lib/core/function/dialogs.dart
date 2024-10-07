@@ -25,7 +25,15 @@ showLoadingDialog(BuildContext context) {
       barrierDismissible: false,
       context: context,
       builder: (context) {
-        return Lottie.asset('assets/images/loading.json');
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.asset(
+              'assets/images/loading.json',
+              width: 250,
+            ),
+          ],
+        );
       });
 }
 

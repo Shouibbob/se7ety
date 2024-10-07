@@ -30,6 +30,8 @@ class AppTheme {
     inputDecorationTheme: const InputDecorationTheme(
       fillColor: AppColors.accentColor,
       filled: true,
+      suffixIconColor: AppColors.primaryColor,
+      prefixIconColor: AppColors.primaryColor,
       hintStyle: TextStyle(
         fontFamily: 'cairo',
         color: AppColors.greyColor,

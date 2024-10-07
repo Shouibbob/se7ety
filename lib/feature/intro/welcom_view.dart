@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:se7ety/core/enum/user_type_enum.dart';
 import 'package:se7ety/core/function/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_style.dart';
@@ -69,7 +70,7 @@ class WelcomView extends StatelessWidget {
                           push(
                               context,
                               const LoginView(
-                                index: 0,
+                                userType: UserType.doctor,
                               ));
                         },
                         child: Container(
@@ -92,7 +93,7 @@ class WelcomView extends StatelessWidget {
                           push(
                               context,
                               const LoginView(
-                                index: 1,
+                                userType: UserType.patient,
                               ));
                         },
                         child: Container(
