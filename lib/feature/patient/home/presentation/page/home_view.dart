@@ -2,8 +2,10 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:se7ety/core/function/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_style.dart';
+import 'package:se7ety/feature/patient/home/presentation/page/home_search_view.dart';
 import 'package:se7ety/feature/patient/home/presentation/widgets/specialist_widget.dart';
 import 'package:se7ety/feature/patient/home/presentation/widgets/top_rated_widget.dart';
 
@@ -105,18 +107,33 @@ class _PatientHomeViewState extends State<PatientHomeView> {
                         iconSize: 20,
                         splashRadius: 20,
                         onPressed: () {
-                          // setState(() {
-                          //   _doctorName.text.isEmpty
-                          // //   ?Container()
-                          //   :push(context, newScreen);
-                          // });
+                          setState(() {
+                            if (_doctorName.text.isNotEmpty) {
+                              push(
+                                  context,
+                                  HomeSearchView(
+                                    searchKey: _doctorName.text,
+                                  ));
+                            }
+                          });
                         },
-                        icon: const Icon(Icons.search, color: AppColors.whiteColor),
+                        icon: const Icon(Icons.search,
+                            color: AppColors.whiteColor),
                       ),
                     ),
                   ),
                   style: getBodyStyle(),
-                  onFieldSubmitted: (value) {},
+                  onFieldSubmitted: (value) {
+                    setState(() {
+                      if (_doctorName.text.isNotEmpty) {
+                        push(
+                            context,
+                            HomeSearchView(
+                              searchKey: _doctorName.text,
+                            ));
+                      }
+                    });
+                  },
                 ),
               ),
               const Gap(16),

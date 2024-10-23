@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:se7ety/core/widgets/doctor_card.dart';
+import 'package:se7ety/feature/auth/data/models/doctor_model.dart';
 
 // work with firebase its same with every screen
 
@@ -40,18 +41,13 @@ class _TopRatedListState extends State<TopRatedList> {
               shrinkWrap: true,
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (context, index) {
-                var doctor =
-                    snapshot.data!.docs[index].data() as Map<String, dynamic>;
-                if (doctor['name'] == '' || doctor['specialization'] == '') {
-                  return SizedBox();
-                }
-                return DoctorCard(
-                  name: doctor['name'],
-                  image: doctor['image'],
-                  specialization: doctor['specialization'],
-                  rating: doctor['rating'],
-                  onPressed: () {},
-                );
+                 DoctorModel doctor = DoctorModel.fromJson(
+                          snapshot.data!.docs[index].data() as Map<String, dynamic>,
+                        );
+                        if (doctor.specialization == '') {
+                          return const SizedBox();
+                        }
+                        return DoctorCard(doctor: doctor,);
               },
             );
           }

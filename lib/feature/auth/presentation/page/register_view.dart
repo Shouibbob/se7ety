@@ -11,7 +11,8 @@ import 'package:se7ety/core/widgets/custom_button_widget.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_event.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_state.dart';
-import 'package:se7ety/feature/auth/presentation/page/doctor_data.dart';
+//import 'package:se7ety/feature/auth/presentation/page/doctor_data.dart';
+import 'package:se7ety/feature/auth/presentation/page/doctor_registration_view.dart';
 import 'package:se7ety/feature/auth/presentation/page/login_view.dart';
 import 'package:se7ety/feature/patient/nav_bar.dart';
 
@@ -38,6 +39,7 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.whiteColor,
         leading: const BackButton(),
       ),
       body: BlocListener<AuthBloc, AuthState>(
@@ -46,7 +48,7 @@ class _RegisterViewState extends State<RegisterView> {
             showLoadingDialog(context);
           } else if (state is RegisterSuccessState) {
             if (widget.userType == UserType.doctor) {
-              pushAndRemoveUntil(context, const DoctorData());
+              pushAndRemoveUntil(context, const DoctorRegistrationView());
             } else {
               pushAndRemoveUntil(context, const PatientNavBarWidget());
             }

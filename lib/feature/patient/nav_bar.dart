@@ -4,8 +4,8 @@ import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/feature/patient/home/presentation/page/appointments_view.dart';
 import 'package:se7ety/feature/patient/home/presentation/page/home_view.dart';
-import 'package:se7ety/feature/patient/home/presentation/page/profile_view.dart';
-import 'package:se7ety/feature/patient/home/presentation/page/search_view.dart';
+import 'package:se7ety/feature/patient/profile/presentation/page/patient_profile_view.dart';
+import 'package:se7ety/feature/patient/search/presentation/page/search_view.dart';
 
 class PatientNavBarWidget extends StatefulWidget {
   const PatientNavBarWidget({super.key});
@@ -20,7 +20,7 @@ class _PatientNavBarWidgetState extends State<PatientNavBarWidget> {
     const PatientHomeView(),
     const SearchView(),
     const AppointmentsView(),
-    const ProfileView(),
+    const PatientProfile(),
   ];
   @override
   Widget build(BuildContext context) {

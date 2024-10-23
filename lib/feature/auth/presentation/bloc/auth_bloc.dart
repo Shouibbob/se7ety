@@ -10,6 +10,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
     on<RegisterEvent>(register);
     on<LoginEvent>(login);
+    on<UpdateDoctorRegistrationEvent>(updateDoctorRegistration);
   }
 
   register(RegisterEvent event, Emitter<AuthState> emit) async {
@@ -90,6 +91,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     } catch (e) {
       emit(AuthErrorState('حدث خطأ ما'));
+    }
+  }
+
+  updateDoctorRegistration(
+      UpdateDoctorRegistrationEvent event, Emitter<AuthState> emit) async {
+    emit(UpdateDoctorRegisterLoadingState());
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('doctors')
+          .doc(event.model.uid)
+          .update({
+        "image": event.model.image,
+        "specialization": event.model.specialization,
+        "phone1": event.model.phone1,
+        "phone2": event.model.phone2,
+        "bio": event.model.bio,
+        "openHour": event.model.openHour,
+        "closeHour": event.model.closeHour,
+        "address": event.model.address,
+      });
+
+      emit(UpdateDoctorRegisterSuccessState());
+    } on Exception catch (e) {
+      emit(AuthErrorState(e.toString()));
     }
   }
 }

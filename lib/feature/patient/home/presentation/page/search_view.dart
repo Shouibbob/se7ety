@@ -4,14 +4,14 @@ import 'package:gap/gap.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_style.dart';
 
-class SearchView extends StatefulWidget {
-  const SearchView({super.key});
+class SearchViewScreen extends StatefulWidget {
+  const SearchViewScreen({super.key});
 
   @override
-  State<SearchView> createState() => _SearchViewState();
+  State<SearchViewScreen> createState() => _SearchViewScreenState();
 }
 
-class _SearchViewState extends State<SearchView> {
+class _SearchViewScreenState extends State<SearchViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

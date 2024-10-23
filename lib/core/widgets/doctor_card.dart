@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:se7ety/core/function/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_style.dart';
+import 'package:se7ety/feature/auth/data/models/doctor_model.dart';
+import 'package:se7ety/feature/patient/search/presentation/page/doctor_profile_view.dart';
 
-class DoctorCard extends StatefulWidget {
-  const DoctorCard(
-      {super.key,
-      required this.name,
-      required this.image,
-      required this.specialization,
-      required this.rating,
-      this.onPressed});
+class DoctorCard extends StatelessWidget {
+  const DoctorCard({super.key, required this.doctor});
 
-  final String name;
-  final String image;
-  final String specialization;
-  final int rating;
-  final Function()? onPressed;
+  // final String name;
+  // final String image;
+  // final String specialization;
+  // final int rating;
+  // final Function()? onPressed;
+  final DoctorModel doctor;
 
-  @override
-  State<DoctorCard> createState() => _DoctorCardState();
-}
-
-class _DoctorCardState extends State<DoctorCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,12 +35,14 @@ class _DoctorCardState extends State<DoctorCard> {
         ],
       ),
       child: InkWell(
-        onTap: widget.onPressed,
+        onTap: () {
+          push(context, DoctorProfile(doctorModel: doctor));
+        },
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(13)),
+              borderRadius: const BorderRadius.all(Radius.circular(13)),
               child: Container(
                 height: 55,
                 width: 55,
@@ -56,7 +51,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   color: AppColors.whiteColor,
                 ),
                 child: Image.network(
-                  widget.image,
+                  doctor.image ?? '',
                   height: 50,
                   width: 50,
                   fit: BoxFit.contain,
@@ -70,13 +65,13 @@ class _DoctorCardState extends State<DoctorCard> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    widget.name,
+                    doctor.name ?? '',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: getTitleStyle(fontSize: 16),
                   ),
                   Text(
-                    widget.specialization,
+                    doctor.specialization ?? '',
                     style: getBodyStyle(),
                   ),
                 ],
@@ -87,7 +82,7 @@ class _DoctorCardState extends State<DoctorCard> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  widget.rating.toString(),
+                  doctor.rating.toString(),
                   style: getBodyStyle(),
                 ),
                 const Gap(3),

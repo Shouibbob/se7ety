@@ -50,6 +50,7 @@ class _LoginViewState extends State<LoginView> {
       },
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors.whiteColor,
           leading: const BackButton(),
         ),
         body: Center(

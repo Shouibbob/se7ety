@@ -6,13 +6,16 @@ class AppTheme {
     fontFamily: 'DMSerifDisplay',
     scaffoldBackgroundColor: AppColors.whiteColor,
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.whiteColor,
+      backgroundColor: AppColors.primaryColor,
+      foregroundColor: AppColors.whiteColor,
+      //titleTextStyle: getBodyStyle(color: AppColors.whiteColor),
       centerTitle: true,
-      // titleTextStyle: TextStyle(
-      //   fontSize: 18,
-      //   fontWeight: FontWeight.w500,
-      //   color: AppColors.textColor,
-      // ),
+      titleTextStyle: TextStyle(
+        fontSize: 18,
+        fontFamily: 'cairo',
+        fontWeight: FontWeight.bold,
+        color: AppColors.whiteColor,
+      ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColors.whiteColor,
